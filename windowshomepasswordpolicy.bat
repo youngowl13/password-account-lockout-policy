@@ -2,7 +2,9 @@
 :: Script to update passsword policy
 :: To Enable Password Expiration for Local Accounts 
 wmic UserAccount set PasswordExpires=True 
-:: minimum password age         
+:: disable the use of same password upon expiration, maximum value is 24
+net accounts /uniquepw:5
+:: minimum password age, value shoud be 0 always
 net accounts /minpwage:0 
 :: maximum password age
 net accounts /maxpwage:800
